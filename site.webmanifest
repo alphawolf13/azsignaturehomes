@@ -1,0 +1,14 @@
+{
+  "name": "Arizona Signature Homes",
+  "short_name": "AZ Signature",
+  "description": "Michael Karabatsos, Scottsdale REALTOR with PAK Home Realty.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#000000",
+  "theme_color": "#0B0C0E",
+  "icons": [
+    { "src": "assets/favicon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "assets/apple-touch-icon.png", "sizes": "180x180", "type": "image/png" },
+    { "src": "assets/favicon-32.png", "sizes": "32x32", "type": "image/png" }
+  ]
+}
