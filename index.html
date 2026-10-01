@@ -90,7 +90,7 @@
   v7, 20 Sep 2026. Repositioned. Every earlier version led on the fact that Michael
   films his listings, which made an agent read as a videographer. Filming is a
   channel, not the offer, so it now lives only in the Tours section. The page is
-  built on what he actually sells: street-level knowledge of four neighborhoods,
+  built on what he actually sells: street-level knowledge of five neighborhoods,
   plus full ARMLS access across the metro. Neighbourhoods moved up to lead the
   page, directly after the hero.
 
@@ -113,7 +113,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Scottsdale REALTOR | Michael Karabatsos, Arizona Signature Homes</title>
-<meta name="description" content="Scottsdale REALTOR Michael Karabatsos. Arcadia, Paradise Valley, Scottsdale and Fountain Hills read street by street, plus full ARMLS access across the Valley.">
+<meta name="description" content="Scottsdale REALTOR Michael Karabatsos. Arcadia, Biltmore, Paradise Valley, Scottsdale and Fountain Hills read street by street, plus full ARMLS access across the Valley.">
 <link rel="canonical" href="https://www.azsignaturehomes.com/">
 <meta name="theme-color" content="#0B0C0E">
 <link rel="manifest" href="site.webmanifest">
@@ -154,7 +154,7 @@
   "email":"michael@azsignaturehomes.com",
   "telephone":"+1-480-647-0282",
   "identifier":"SA690992000",
-  "areaServed":["Arcadia, Phoenix AZ","Paradise Valley AZ","Scottsdale AZ","Fountain Hills AZ","Phoenix AZ","Chandler AZ","Gilbert AZ","Mesa AZ","Tempe AZ","Cave Creek AZ","Peoria AZ","Phoenix Metropolitan Area"],
+  "areaServed":["Arcadia, Phoenix AZ","Biltmore, Phoenix AZ","Paradise Valley AZ","Scottsdale AZ","Fountain Hills AZ","Phoenix AZ","Chandler AZ","Gilbert AZ","Mesa AZ","Tempe AZ","Cave Creek AZ","Peoria AZ","Phoenix Metropolitan Area"],
   "memberOf":{"@type":"Organization","name":"PAK Home Realty"},
   "address":{"@type":"PostalAddress","streetAddress":"3101 N Central Ave Suite 1110","addressLocality":"Phoenix","addressRegion":"AZ","postalCode":"85012","addressCountry":"US"},
   "image":"https://www.azsignaturehomes.com/og-azsignature.jpg",
@@ -641,7 +641,12 @@ p:last-child{margin-bottom:0;}
 .tlink:hover::after{transform:scaleX(1);transform-origin:left;}
 .tlink .arw{transition:transform .4s var(--ease-out);}
 .tlink:hover .arw{transform:translateX(5px);}
-@media (max-width:760px){ .hoodgrid{grid-template-columns:1fr;} }
+/* Five plates in a two-column grid leaves the last one alone beside a hole.
+   Let an odd final plate span the full width instead, shorter so it reads as a
+   band rather than a second hero. Self-correcting if a sixth is ever added. */
+.hoodgrid > .hood:last-child:nth-child(odd){ grid-column:1/-1; min-height:clamp(280px,27vw,380px); }
+@media (max-width:760px){ .hoodgrid{grid-template-columns:1fr;}
+  .hoodgrid > .hood:last-child:nth-child(odd){ min-height:clamp(320px,42vw,460px); } }
 .valley{
   margin-top:clamp(12px,1.4vw,20px); border:1px solid var(--line); background:var(--ink-2);
   padding:clamp(26px,3.2vw,44px); display:grid; grid-template-columns:1fr auto;
@@ -1032,9 +1037,9 @@ picture{display:contents;}
       <h2 class="rv" data-d="1">Michael<br>Karabatsos</h2>
       <hr class="rule rv" data-d="2" style="margin-top:2rem">
       <p class="lede rv" data-d="2">
-        Licensed with PAK Home Realty and based in Scottsdale. Arcadia, Paradise Valley,
-        Scottsdale and Fountain Hills are my week, treated as four separate markets rather
-        than one search radius, and I work the wider Phoenix Valley for the families who
+        Licensed with PAK Home Realty and based in Scottsdale. Arcadia, Biltmore, Paradise
+        Valley, Scottsdale and Fountain Hills are my week, treated as five separate markets
+        rather than one search radius, and I work the wider Phoenix Valley for the families who
         need me there.
       </p>
       <p class="rv" data-d="3" style="color:var(--bone-2);margin-top:1.4rem;max-width:58ch">
@@ -1077,16 +1082,17 @@ picture{display:contents;}
     <div class="sechead">
       <div>
         <p class="eyebrow rv">Where I work</p>
-        <h2 class="rv hoods__h2" data-d="1">Four neighborhoods by heart.<br>The whole Valley by request.</h2>
+        <h2 class="rv hoods__h2" data-d="1">Five neighborhoods by heart.<br>The whole Valley by request.</h2>
       </div>
       <p class="sechead__aside rv" data-d="2">
-        These four are where I am every week, so the read is street by street. Anywhere
+        These five are where I am every week, so the read is street by street. Anywhere
         else across the Phoenix Valley, the same standard travels with me.
       </p>
     </div>
 
-    <!-- Neighborhood plates: AI-generated concept homes (Gemini, 22 Sep 2026),
-         representative of each area, not specific listings. Never caption as his. -->
+    <!-- Neighborhood plates: AI-generated concept homes, representative of each area,
+         NOT specific listings and never to be captioned as his. Arcadia, Paradise Valley,
+         Scottsdale and Fountain Hills: Gemini, 22 Sep 2026. Biltmore: 25 Sep 2026. -->
     <div class="hoodgrid">
 
       <article class="hood rv">
@@ -1145,9 +1151,23 @@ picture{display:contents;}
         </div>
       </article>
 
+      <article class="hood rv" data-d="4">
+        <picture><source srcset="img-hood-biltmore.webp" type="image/webp"><img src="img-hood-biltmore.jpg" alt="A low-slung home behind mature palms at golden hour, representative of the Biltmore area" loading="lazy" width="1536" height="1024"></picture>
+        <div class="hood__body">
+          <h3>Biltmore</h3>
+          <p>Grown-in landscaping and corners you can actually walk, which is rare this close
+             to the middle of Phoenix. Inventory is thin and turns quietly, so the one you
+             want is often gone before it ever felt like it was for sale.</p>
+          <div class="hood__links">
+            <a class="tlink" href="https://search.azsignaturehomes.com/AZ/85016" target="_blank" rel="noopener">Homes for sale <span class="arw">&rarr;</span></a>
+            <a class="tlink" href="#consult" data-hood="Biltmore">Get the Biltmore report <span class="arw">&rarr;</span></a>
+          </div>
+        </div>
+      </article>
+
     </div>
 
-    <!-- The four above are the specialty. This band keeps the door open to the rest
+    <!-- The five above are the specialty. This band keeps the door open to the rest
          of the metro without diluting the depth claim. -->
     <div class="valley rv">
       <div>
@@ -1449,7 +1469,7 @@ picture{display:contents;}
   <div class="wrap consult__grid">
     <div>
       <p class="eyebrow rv">Next step</p>
-      <h2 class="rv" data-d="1">Thirty minutes.<br>No pitch.</h2>
+      <h2 class="rv" data-d="1">Fifteen minutes.<br>No pitch.</h2>
       <hr class="rule rv" data-d="2" style="margin-top:2rem">
       <p class="lede rv" data-d="2">
         Tell me what you are trying to do and by when. If I am not the right person
@@ -1464,7 +1484,7 @@ picture{display:contents;}
 
       <!-- ============== CALENDLY / FUB SCHEDULER DROP-IN ================
         Option A, Calendly inline:
-          <div class="calendly-inline-widget" data-url="https://calendly.com/USER/30min?hide_gdpr_banner=1&background_color=101217&text_color=EFE9DF&primary_color=B08D57" style="min-width:320px;height:680px"></div>
+          <div class="calendly-inline-widget" data-url="https://calendly.com/USER/15min?hide_gdpr_banner=1&background_color=101217&text_color=EFE9DF&primary_color=B08D57" style="min-width:320px;height:680px"></div>
           <script src="https://assets.calendly.com/assets/external/widget.js" async></script>
         Option B, Follow Up Boss scheduling link: just swap the button href.
       ================================================================ -->
@@ -1536,6 +1556,7 @@ picture{display:contents;}
             <select id="f-hood" name="neighborhood">
               <option value="">Select one</option>
               <option>Arcadia</option>
+              <option>Biltmore</option>
               <option>Paradise Valley</option>
               <option>Scottsdale</option>
               <option>Fountain Hills</option>
