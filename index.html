@@ -1399,7 +1399,7 @@ picture{display:contents;}
           <input type="text" name="firstName" placeholder="First name" autocomplete="given-name" required aria-label="First name">
           <input type="email" name="email" placeholder="Email" autocomplete="email" required aria-label="Email">
           <label class="consent consent--sm"><input type="checkbox" name="consent" required>
-            <span>I agree to be contacted by Michael Karabatsos PLLC via call, email, and text for real estate services. Reply "stop" to opt out. Message and data rates may apply. <a href="/privacy" target="_blank" rel="noopener">Privacy Policy</a></span></label>
+            <span>Send me the guide, and I agree to follow-up emails from Michael Karabatsos PLLC about real estate services. Unsubscribe anytime. <a href="/privacy" target="_blank" rel="noopener">Privacy Policy</a> &middot; <a href="/terms" target="_blank" rel="noopener">Terms</a></span></label>
           <button class="btn" type="submit">Send me the guide</button>
           <p class="guide__done" hidden></p>
         </form>
@@ -1413,7 +1413,7 @@ picture{display:contents;}
           <input type="text" name="firstName" placeholder="First name" autocomplete="given-name" required aria-label="First name">
           <input type="email" name="email" placeholder="Email" autocomplete="email" required aria-label="Email">
           <label class="consent consent--sm"><input type="checkbox" name="consent" required>
-            <span>I agree to be contacted by Michael Karabatsos PLLC via call, email, and text for real estate services. Reply "stop" to opt out. Message and data rates may apply. <a href="/privacy" target="_blank" rel="noopener">Privacy Policy</a></span></label>
+            <span>Send me the guide, and I agree to follow-up emails from Michael Karabatsos PLLC about real estate services. Unsubscribe anytime. <a href="/privacy" target="_blank" rel="noopener">Privacy Policy</a> &middot; <a href="/terms" target="_blank" rel="noopener">Terms</a></span></label>
           <button class="btn" type="submit">Send me the guide</button>
           <p class="guide__done" hidden></p>
         </form>
@@ -1534,13 +1534,6 @@ picture{display:contents;}
             <input id="f-email" name="email" type="email" autocomplete="email" required>
           </div>
           <div class="field">
-            <label for="f-phone">Mobile</label>
-            <input id="f-phone" name="phone" type="tel" autocomplete="tel" required>
-          </div>
-        </div>
-
-        <div class="form__row">
-          <div class="field">
             <label for="f-intent">I am</label>
             <select id="f-intent" name="intent" required>
               <option value="">Select one</option>
@@ -1551,7 +1544,9 @@ picture{display:contents;}
               <option>Just watching the market</option>
             </select>
           </div>
-          <div class="field">
+        </div>
+
+        <div class="field">
             <label for="f-hood">Neighborhood</label>
             <select id="f-hood" name="neighborhood">
               <option value="">Select one</option>
@@ -1563,7 +1558,6 @@ picture{display:contents;}
               <option>Somewhere else in the Phoenix Valley</option>
               <option>Not sure yet</option>
             </select>
-          </div>
         </div>
 
         <div class="field">
@@ -1581,11 +1575,11 @@ picture{display:contents;}
         <label class="consent">
           <input type="checkbox" id="f-consent" name="consent" required>
           <span>
-            I agree to be contacted by Michael Karabatsos PLLC via call, email, and text for
-            real estate services. To opt out, you can reply "stop" at any time or reply "help"
-            for assistance. You can also click the unsubscribe link in the emails. Message and
-            data rates may apply. Message frequency may vary.
-            <a href="/privacy" target="_blank" rel="noopener">Privacy Policy</a>
+            I agree to be contacted by Michael Karabatsos PLLC by email about my request and about
+            real estate services. You can unsubscribe at any time using the link in any email.
+            Prefer text messages? Use the chat button on this page.
+            <a href="/privacy" target="_blank" rel="noopener">Privacy Policy</a> &middot;
+            <a href="/terms" target="_blank" rel="noopener">Terms</a>
           </span>
         </label>
 
@@ -1667,6 +1661,7 @@ picture{display:contents;}
         <li><a href="https://www.facebook.com/profile.php?id=61555614735183" target="_blank" rel="noopener">Facebook</a></li>
         <li><a href="#consult">Book a consultation</a></li>
         <li><a href="/privacy" target="_blank" rel="noopener">Privacy policy</a></li>
+        <li><a href="/terms" target="_blank" rel="noopener">Terms and text messaging</a></li>
       </ul>
     </div>
   </div>
@@ -1897,7 +1892,6 @@ picture{display:contents;}
       var body = [
         "Name: "  + data.firstName + " " + data.lastName,
         "Email: " + data.email,
-        "Mobile: "+ data.phone,
         "I am: "  + (data.intent || ""),
         "Neighborhood: " + (data.neighborhood || ""),
         "", (data.message || ""), "", "Sent from azsignaturehomes.com"
@@ -1997,5 +1991,13 @@ picture{display:contents;}
   }
 })();
 </script>
+<!-- ================= GHL CHAT WIDGET (the ONLY SMS opt-in on this site) =================
+  A2P rule: the chat widget must be the single place a phone number is collected. Every form
+  above is email-only on purpose. WIDGET_ID comes from Michael's GHL sub-account
+  (gyKckbQyAdAfdxqNFLg3). Selecting the "Mixed" use case in A2P issues a NEW id: swap it here
+  and redeploy (A2P runbook Phase 4b).
+  A2P "Mixed" widget, issued 2026-10-22 during A2P registration (replaced the 10-20 placeholder 6ad830ac...).
+====================================================================================== -->
+<script src="https://widgets.leadconnectorhq.com/loader.js" data-resources-url="https://widgets.leadconnectorhq.com/chat-widget/loader.js" data-widget-id="6ada3eed9f0ad5b6ad973792" data-source="WEB_USER"></script>
 </body>
 </html>
