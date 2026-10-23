@@ -1,0 +1,378 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Locally Sourced | Michael Karabatsos &amp; Jorge Espinoza</title>
+<meta name="description" content="A free home-buying kit from two Valley locals: Michael Karabatsos (Arizona Signature Homes) and Jorge Espinoza (92 Mortgage). A buyer guide plus a Buying Power Check.">
+<link rel="canonical" href="https://www.azsignaturehomes.com/market">
+<meta name="theme-color" content="#24402E">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Arizona Signature Homes">
+<meta property="og:title" content="Locally Sourced | A free home-buying kit from Michael Karabatsos &amp; Jorge Espinoza">
+<meta property="og:description" content="Two Valley locals, one free kit: Michael's buyer guide plus a Buying Power Check with Jorge.">
+<meta property="og:url" content="https://www.azsignaturehomes.com/market">
+<meta name="twitter:card" content="summary">
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" type="image/png" href="favicon-512.png" sizes="512x512">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<script>(function(d){d.classList.add('js');if(!(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches))d.classList.add('anim')})(document.documentElement)</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;800;900&family=Public+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+/* Concept: Valley Crate Label. The Valley's old citrus crate labels: framed labels, condensed block type, grove green and one citrus accent. */
+:root{
+  --page:#FAF6EC; --cream:#F3EBD8; --kraft:#E4D3B2; --kraft-line:#CDB78E;
+  --grove:#24402E; --grove-2:#2F5139; --citrus:#D8792A;
+  --ink:#1F1B16; --text:#2E2A24; --muted:#6A6156;
+  --rule:rgba(31,27,22,.16);
+  --ff-label:"Big Shoulders Display","Arial Narrow",Arial,sans-serif;
+  --ff-body:"Public Sans",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+  --pad:clamp(16px,5vw,64px);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--page);color:var(--text);font-family:var(--ff-body);font-size:17px;line-height:1.62;-webkit-font-smoothing:antialiased}
+a{color:var(--grove)}
+img{max-width:100%;display:block}
+.wrap{max-width:1120px;margin:0 auto;padding:0 var(--pad)}
+
+
+header.bar{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:16px var(--pad);border-bottom:1px solid var(--rule);background:var(--page)}
+.marks{display:flex;align-items:center;gap:16px}
+.marks .az{height:50px;width:auto}
+.marks .m92{height:66px;width:auto}
+.marks .x{color:var(--muted)}
+.call{margin:0;display:flex;flex-direction:column;align-items:flex-end;gap:2px;font-size:14px}
+.call a{color:var(--ink);text-decoration:none;white-space:nowrap}
+
+/* hero */
+.hero{padding:clamp(40px,7vw,88px) 0 clamp(44px,7vw,84px);overflow-x:clip}
+@supports not (overflow:clip){.hero{overflow-x:hidden}}
+.hero .wrap{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(28px,5vw,64px);align-items:center}
+.found{font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--citrus);font-weight:600;margin:0 0 16px}
+.label{position:relative;background:var(--grove);color:var(--cream);border-radius:16px;padding:34px 34px 28px;text-align:center;
+  box-shadow:0 20px 40px rgba(36,64,46,.18)}
+html:not(.js) .label{box-shadow:inset 0 0 0 10px var(--grove),inset 0 0 0 12px var(--cream),inset 0 0 0 16px var(--grove),
+  inset 0 0 0 17px rgba(243,235,216,.6),0 20px 40px rgba(36,64,46,.18)}
+.label .frame{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;overflow:visible}
+.label .frame rect{fill:none;stroke:var(--cream)}
+.label .frame .r1{stroke-width:2}
+.label .frame .r2{stroke-width:1;opacity:.6}
+.label .sheen{position:absolute;inset:0;border-radius:16px;overflow:hidden;pointer-events:none}
+.label .sheen:after{content:"";position:absolute;top:-20%;bottom:-20%;left:-60%;width:38%;transform:skewX(-14deg);
+  background:linear-gradient(100deg,transparent,rgba(255,255,255,.13),transparent)}
+.label .arch{display:block;width:100%;max-width:380px;margin:0 auto -4px;height:auto;overflow:visible}
+.label .arch text{white-space:pre;fill:var(--cream);font-family:var(--ff-label);font-weight:800;font-size:19px;letter-spacing:.22em}
+h1{font-family:var(--ff-label);font-weight:900;text-transform:uppercase;font-size:clamp(64px,10vw,124px);line-height:.86;letter-spacing:.01em;margin:6px 0 10px;color:var(--cream)}
+h1 .ln{display:block;overflow:hidden;padding-top:.1em;margin-top:-.1em}
+h1 .in{display:block}
+.variety{font-family:var(--ff-label);font-weight:800;text-transform:uppercase;letter-spacing:.16em;font-size:clamp(15px,1.7vw,19px);color:var(--citrus);margin:0 0 18px}
+.ribbon{display:inline-block;position:relative;padding:7px 14px;
+  font-family:var(--ff-label);font-weight:800;text-transform:uppercase;letter-spacing:.14em;font-size:15px}
+.seal{position:absolute;top:-20px;right:-14px;width:98px;height:98px;border-radius:50%;background:var(--citrus);color:#fff;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;transform:rotate(9deg);font-family:var(--ff-label);font-weight:900;
+  text-transform:uppercase;line-height:.95;font-size:22px;box-shadow:0 0 0 4px var(--page)}
+.seal small{font-size:12px;letter-spacing:.14em;font-weight:800}
+.ribbon:before,.ribbon:after{content:"";position:absolute;left:0;right:0;height:1.5px;background:rgba(243,235,216,.55)}
+.ribbon:before{top:0}.ribbon:after{bottom:0}
+.ribbon span{display:inline-block}
+
+/* entrance (html.anim = motion allowed; html.go = fonts ready, start) */
+html.anim .label{clip-path:inset(50% 0 50% 0 round 16px)}
+html.anim .arch tspan,html.anim .seal,html.anim .ribbon span,html.anim .variety,html.anim .intro>*{opacity:0}
+html.anim h1 .in{transform:translateY(112%)}
+html.anim .ribbon:before,html.anim .ribbon:after{transform:scaleX(0)}
+html.go .label{animation:unfold .85s cubic-bezier(.22,.8,.24,1) .1s both}
+html.go .arch tspan{animation:ink .5s ease-out var(--d) both}
+html.go h1 .ln:nth-child(1) .in{animation:rise .85s cubic-bezier(.2,.8,.2,1) 1.05s both}
+html.go h1 .ln:nth-child(2) .in{animation:rise .85s cubic-bezier(.2,.8,.2,1) 1.2s both}
+html.go .variety{animation:settle .8s cubic-bezier(.2,.8,.2,1) 1.6s both}
+html.go .ribbon:before,html.go .ribbon:after{animation:rule .7s cubic-bezier(.6,0,.3,1) 1.9s both}
+html.go .ribbon span{animation:fade .6s ease-out 2.2s both}
+html.go .seal{animation:stamp .55s cubic-bezier(.3,1.35,.5,1) 2.5s both}
+html.go .sheen:after{animation:sheen 1.5s ease-in-out 3.05s both}
+html.go .intro>*{animation:up .8s cubic-bezier(.2,.8,.2,1) both}
+html.go .intro>:nth-child(1){animation-delay:.35s}
+html.go .intro>:nth-child(2){animation-delay:.5s}
+html.go .intro>:nth-child(3){animation-delay:.65s}
+html.go .intro>:nth-child(4){animation-delay:.8s}
+@keyframes unfold{from{clip-path:inset(50% 0 50% 0 round 16px)}to{clip-path:inset(-90px -90px -90px -90px round 16px)}}
+@keyframes ink{from{opacity:0;fill:var(--citrus)}55%{opacity:1;fill:var(--citrus)}to{opacity:1;fill:var(--cream)}}
+@keyframes rise{from{transform:translateY(112%)}to{transform:none}}
+@keyframes settle{from{opacity:0;transform:translateY(10px);filter:blur(6px)}to{opacity:1;transform:none;filter:none}}
+@keyframes rule{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+@keyframes fade{from{opacity:0}to{opacity:1}}
+@keyframes stamp{0%{opacity:0;transform:rotate(-14deg) scale(1.9)}55%{opacity:1}100%{opacity:1;transform:rotate(9deg) scale(1)}}
+@keyframes sheen{from{left:-60%}to{left:130%}}
+@keyframes up{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+.intro p.lead{font-size:clamp(18px,2vw,21px);color:var(--ink);margin:0 0 26px;max-width:540px}
+.ctas{display:flex;flex-wrap:wrap;gap:12px}
+.btn{display:inline-block;padding:15px 24px;border-radius:6px;font-weight:600;font-size:16px;text-decoration:none;border:1.5px solid var(--grove)}
+.btn.solid{background:var(--grove);color:#fff}
+.btn.ghost{color:var(--grove);background:transparent}
+.stamp{margin-top:26px;font-size:13.5px;color:var(--muted)}
+
+/* the two crate labels */
+section.kit{background:var(--cream);border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);padding:clamp(48px,7vw,84px) 0}
+h2{font-family:var(--ff-label);font-weight:900;text-transform:uppercase;letter-spacing:.01em;font-size:clamp(38px,5.4vw,58px);line-height:.95;margin:0 0 12px;color:var(--ink)}
+.sub{color:var(--muted);max-width:620px;margin:0 0 30px}
+.crates{display:grid;grid-template-columns:1fr 1fr;gap:clamp(16px,3vw,28px)}
+.crate{background:var(--page);border-radius:12px;padding:28px 28px 0;display:flex;flex-direction:column;
+  box-shadow:inset 0 0 0 2px var(--grove),inset 0 0 0 7px var(--page),inset 0 0 0 8px var(--grove)}
+.crate .no{font-family:var(--ff-label);font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:var(--citrus);font-size:15px;margin:0 0 2px}
+.crate h3{font-family:var(--ff-label);font-weight:900;text-transform:uppercase;font-size:clamp(34px,4vw,46px);line-height:.92;margin:0 0 10px;color:var(--grove)}
+.crate .packed{font-size:14px;color:var(--muted);margin:0 0 14px}
+.crate .packed b{color:var(--ink);font-weight:600}
+.crate p.what{margin:0 0 22px}
+.crate .foot{margin:auto -28px 0;padding:12px 28px;background:var(--grove);color:var(--cream);border-radius:0 0 12px 12px;
+  font-family:var(--ff-label);font-weight:800;letter-spacing:.16em;text-transform:uppercase;font-size:15px;display:flex;justify-content:space-between;gap:10px}
+
+/* list + form */
+section.get{padding:clamp(48px,7vw,90px) 0}
+.getgrid{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(24px,4vw,56px);align-items:start}
+.list{background:var(--kraft);padding:24px 24px 14px;border-radius:4px;position:relative;
+  background-image:repeating-linear-gradient(0deg,transparent 0 33px,rgba(31,27,22,.05) 33px 34px)}
+.list:before{content:"";position:absolute;left:0;right:0;top:-8px;height:8px;
+  background:radial-gradient(circle at 6px 8px,var(--page) 5px,transparent 5.5px) 0 0/12px 8px repeat-x}
+.list-h{font-family:var(--ff-label);font-weight:900;text-transform:uppercase;font-size:28px;letter-spacing:.02em;margin:0 0 10px;color:var(--ink)}
+.list ul{list-style:none;margin:0;padding:0}
+.list li{display:grid;grid-template-columns:22px 1fr;gap:2px 10px;padding:9px 0;border-top:1px dashed var(--kraft-line);font-size:15.5px;line-height:1.45}
+.list .box{width:16px;height:16px;border:2px solid var(--grove);border-radius:3px;margin-top:3px}
+.list em{grid-column:2;font-style:normal;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--grove);font-weight:700}
+.formcol h2{font-size:clamp(34px,4.6vw,50px)}
+.next{margin:0 0 20px;padding:0;list-style:none;font-size:15.5px}
+.next li{padding-left:22px;position:relative;margin:0 0 6px}
+.next li:before{content:"";position:absolute;left:0;top:.62em;width:9px;height:9px;border-radius:50%;background:var(--citrus)}
+.formcard{background:#fff;border-radius:10px;border:1px solid var(--rule);min-height:620px;box-shadow:0 10px 30px rgba(31,27,22,.07)}
+.note{font-size:13.5px;color:var(--muted);margin-top:12px}
+
+/* people */
+section.people{padding:clamp(48px,7vw,84px) 0;border-top:1px solid var(--rule)}
+.pgrid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(16px,3vw,28px)}
+.person{display:grid;grid-template-columns:118px 1fr;gap:18px;background:#fff;border:1px solid var(--rule);border-radius:10px;padding:18px}
+.person img{width:118px;height:142px;object-fit:cover;object-position:top;border-radius:6px}
+.person h3{font-family:var(--ff-label);font-weight:900;text-transform:uppercase;font-size:28px;line-height:1;margin:2px 0 4px;color:var(--ink)}
+.role{font-size:12.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--citrus);font-weight:700;margin:0 0 10px}
+.person p{margin:0 0 10px;font-size:15px}
+.person .contact a{display:block;text-decoration:none;font-size:14.5px}
+
+footer{background:var(--grove);color:rgba(243,235,216,.78);padding:34px 0 120px;font-size:12.5px;line-height:1.65}
+footer p{margin:0 0 10px}
+footer strong{color:var(--cream)}
+footer .links a{color:var(--cream);margin-right:14px}
+
+@media (max-width:860px){
+  .hero .wrap,.getgrid,.crates,.pgrid{grid-template-columns:1fr}
+  .label{order:-1}
+}
+@media (max-width:440px){
+  .call{display:none}
+  .marks .az{height:38px}.marks .m92{height:50px}
+  .label{padding:30px 22px 24px}
+  .seal{width:70px;height:70px;font-size:16px;right:-6px;top:-30px}
+  .seal small{font-size:9.5px}
+  .label .arch{max-width:86%}
+  .ribbon{font-size:13px;letter-spacing:.08em;padding:7px 6px}
+  .btn{width:100%;text-align:center}
+  .person{grid-template-columns:92px 1fr}.person img{width:92px;height:112px}
+  .crate{padding:24px 22px 0}.crate .foot{margin:auto -22px 0;padding:12px 22px}
+}
+</style>
+</head>
+<body>
+
+
+<header class="bar">
+  <div class="marks">
+    <img class="az" src="market-logo-azsh.png" alt="Arizona Signature Homes">
+    <span class="x">&times;</span>
+    <img class="m92" src="market-logo-92.png" alt="92 Mortgage Team">
+  </div>
+  <p class="call"><a href="tel:+16025294994">Michael (602) 529-4994</a><a href="tel:+16237924500">Jorge (623) 792-4500</a></p>
+</header>
+
+<main>
+<section class="hero">
+  <div class="wrap">
+    <div class="intro">
+      <p class="found">Found us on a bag? You're in the right place.</p>
+      <p class="lead">Two locals, one free home-buying kit. Michael covers the home, Jorge covers the loan. Whether you picked up our bag at the market or spotted one in line at the store, the kit is yours.</p>
+      <div class="ctas">
+        <a class="btn solid" href="#start">Get my free kit</a>
+        <a class="btn ghost" href="#kit">What's in it</a>
+      </div>
+      <p class="stamp">First handed out at the Old Town Scottsdale Farmers Market.</p>
+    </div>
+    <div class="label">
+      <svg class="frame" aria-hidden="true"><rect class="r1"/><rect class="r2"/></svg>
+      <div class="sheen" aria-hidden="true"></div>
+      <div class="seal" aria-hidden="true">Free<small>home-buying</small>kit</div>
+      <svg class="arch" viewBox="0 0 400 64" aria-hidden="true"><path id="arc" d="M24,60 Q200,-6 376,60" fill="none"/>
+        <text><textPath href="#arc" startOffset="50%" text-anchor="middle">Packed fresh in the Valley</textPath></text></svg>
+      <h1><span class="ln"><span class="in">Locally</span></span> <span class="ln"><span class="in">Sourced</span></span></h1>
+      <p class="variety">Your shopping list for buying a home</p>
+      <div class="ribbon"><span>Michael Karabatsos &amp; Jorge Espinoza</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="kit" id="kit">
+  <div class="wrap">
+    <h2>What's in the kit</h2>
+    <p class="sub">Two parts, both free, both yours. One for the home, one for the loan.</p>
+    <div class="crates">
+      <article class="crate">
+        <p class="no">No. 1</p>
+        <h3>Buyer Guide</h3>
+        <p class="packed">Packed by <b>Michael Karabatsos</b>, Arizona Signature Homes</p>
+        <p class="what">The whole process, step by step: the real costs, what to expect, and how to win the home you want.</p>
+        <div class="foot"><span>Free</span><span>Yours instantly</span></div>
+      </article>
+      <article class="crate">
+        <p class="no">No. 2</p>
+        <h3>Buying Power Check</h3>
+        <p class="packed">Packed by <b>Jorge Espinoza</b>, 92 Mortgage Team</p>
+        <p class="what">A quick call to find out what you can comfortably buy and what it would cost each month. No obligation, and no pressure.</p>
+        <div class="foot"><span>Free</span><span>15 minutes</span></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="get" id="start">
+  <div class="wrap getgrid">
+    <div class="list">
+      <p class="list-h">Your shopping list</p>
+      <ul>
+        <li><span class="box"></span><span><b>Know your real budget.</b> What you can afford and what it looks like each month.</span><em>Jorge</em></li>
+        <li><span class="box"></span><span><b>Get pre-approved</b> before you fall for a house, so your offer is ready.</span><em>Jorge</em></li>
+        <li><span class="box"></span><span><b>Pick your neighborhoods.</b> Arcadia, Paradise Valley, Scottsdale, Biltmore and beyond.</span><em>Michael</em></li>
+        <li><span class="box"></span><span><b>Tour with a plan</b>, so you only see homes that fit.</span><em>Michael</em></li>
+        <li><span class="box"></span><span><b>Make a strong offer</b> and get the keys.</span><em>Both of us</em></li>
+      </ul>
+    </div>
+    <div class="formcol">
+      <h2>Get your free kit</h2>
+      <ul class="next">
+        <li>Michael's Buyer Guide opens right away and lands in your inbox.</li>
+        <li>Jorge emails you within one business day to set up your Buying Power Check.</li>
+      </ul>
+      <div class="formcard">
+        <iframe
+          src="https://api.leadconnectorhq.com/widget/form/fYcgxY3xxQ74ahABtnYz"
+          style="width:100%;height:100%;border:none;border-radius:8px"
+          id="inline-fYcgxY3xxQ74ahABtnYz"
+          data-layout="{'id':'INLINE'}"
+          data-trigger-type="alwaysShow"
+          data-trigger-value=""
+          data-activation-type="alwaysActivated"
+          data-activation-value=""
+          data-deactivation-type="neverDeactivate"
+          data-deactivation-value=""
+          data-form-name="Event - Old Town Farmers Market 2026"
+          data-height="674"
+          data-layout-iframe-id="inline-fYcgxY3xxQ74ahABtnYz"
+          data-form-id="fYcgxY3xxQ74ahABtnYz"
+          data-cookie-consent="true"
+          data-cookie-consent-provider="auto"
+          title="Event - Old Town Farmers Market 2026"></iframe>
+        <script src="https://link.msgsndr.com/js/form_embed.js"></script>
+      </div>
+      <p class="note">Prefer to text? Use the chat button on this page.</p>
+    </div>
+  </div>
+</section>
+
+<section class="people">
+  <div class="wrap">
+    <h2>The locals behind the kit</h2>
+    <p class="sub">One of us handles the home, the other handles the loan. You can work with either, both, or neither.</p>
+    <div class="pgrid">
+      <div class="person">
+        <img src="img-michael.webp" alt="Michael Karabatsos">
+        <div>
+          <h3>Michael Karabatsos</h3>
+          <p class="role">REALTOR&reg; &middot; Arizona Signature Homes</p>
+          <p>Michael helps you buy, sell or rent in Arcadia, Paradise Valley, Scottsdale and Biltmore, and he's watching the market every day.</p>
+          <div class="contact"><a href="tel:+16025294994">(602) 529-4994</a><a href="mailto:michael@azsignaturehomes.com">michael@azsignaturehomes.com</a></div>
+        </div>
+      </div>
+      <div class="person">
+        <img src="market-jorge.webp" alt="Jorge Espinoza">
+        <div>
+          <h3>Jorge Espinoza</h3>
+          <p class="role">Loan Originator &middot; 92 Mortgage Team</p>
+          <p>Jorge handles the loan side: what you qualify for and what it would cost each month, in English or in Spanish.</p>
+          <div class="contact"><a href="tel:+16237924500">(623) 792-4500</a><a href="mailto:jespinoza@barrettfinancial.com">jespinoza@barrettfinancial.com</a></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p><strong>Michael Karabatsos</strong> &middot; REALTOR&reg; &middot; Arizona license SA690992000 &middot; Arizona Signature Homes &middot; PAK Home Realty</p>
+    <p><strong>Jorge Espinoza</strong> &middot; Loan Originator &middot; NMLS #2594553 &middot; Barrett Financial Group, L.L.C. &middot; Corp NMLS #181106 &middot; 2701 East Insight Way, Suite 150, Chandler, AZ 85286</p>
+    <p>Not affiliated with, sponsored by, endorsed by, or administered by the Old Town Scottsdale Farmers Market, its organizers, or the City of Scottsdale. Michael Karabatsos, Arizona Signature Homes and PAK Home Realty are independent of Barrett Financial Group, L.L.C. You are not required to use either to obtain financing or to buy, sell or rent a home. This is not a commitment to lend. All loans are subject to credit approval, income and asset verification, and property underwriting.</p>
+    <p>&#8962; Equal Housing Opportunity &middot; Equal Housing Lender</p>
+    <p class="links"><a href="/privacy">Privacy Policy</a><a href="/terms">Terms</a></p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var d = document.documentElement, label = document.querySelector('.label');
+  if (!label) return;
+  var anim = d.classList.contains('anim');
+
+  // arched line: one tspan per letter so it can print in order
+  var tp = label.querySelector('.arch textPath'), txt = tp.textContent;
+  tp.textContent = '';
+  for (var i = 0; i < txt.length; i++) {
+    var t = document.createElementNS('http://www.w3.org/2000/svg', 'tspan');
+    t.textContent = txt[i] === ' ' ? '\u00a0' : txt[i];
+    t.style.setProperty('--d', (0.75 + i * 0.034).toFixed(3) + 's');
+    tp.appendChild(t);
+  }
+
+  // double frame drawn as two SVG rects sized to the label
+  var rects = label.querySelectorAll('.frame rect'), spec = [[11, 9], [16.5, 6]], drawn = false;
+  function size() {
+    var W = label.offsetWidth, H = label.offsetHeight;
+    for (var i = 0; i < rects.length; i++) {
+      var r = rects[i], o = spec[i][0];
+      r.setAttribute('x', o); r.setAttribute('y', o); r.setAttribute('rx', spec[i][1]);
+      r.setAttribute('width', Math.max(0, W - 2 * o)); r.setAttribute('height', Math.max(0, H - 2 * o));
+      if (drawn) { r.style.strokeDasharray = ''; r.style.strokeDashoffset = ''; }
+    }
+  }
+  size();
+  if (window.ResizeObserver) new ResizeObserver(size).observe(label); else window.addEventListener('resize', size);
+  if (!anim) { drawn = true; return; }
+
+  for (var k = 0; k < rects.length; k++) {
+    var L = rects[k].getTotalLength();
+    rects[k].style.strokeDasharray = L; rects[k].style.strokeDashoffset = L;
+  }
+  var started = false;
+  function go() {
+    if (started) return; started = true;
+    d.classList.add('go');
+    for (var k = 0; k < rects.length; k++) {
+      var L = rects[k].getTotalLength();
+      var a = rects[k].animate([{strokeDashoffset: L}, {strokeDashoffset: 0}],
+        {duration: 1150, delay: 550 + k * 160, easing: 'cubic-bezier(.6,0,.3,1)', fill: 'forwards'});
+      if (k === rects.length - 1) a.onfinish = function () { drawn = true; size(); };
+    }
+  }
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(go);
+  setTimeout(go, 1500);
+})();
+</script>
+<script src="https://widgets.leadconnectorhq.com/loader.js" data-resources-url="https://widgets.leadconnectorhq.com/chat-widget/loader.js" data-widget-id="6ada3eed9f0ad5b6ad973792" data-source="WEB_USER"></script>
+</body>
+</html>
