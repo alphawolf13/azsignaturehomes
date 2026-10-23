@@ -1855,10 +1855,12 @@ picture{display:contents;}
   /* ---- 8. LEAD FORM  >>  FOLLOW UP BOSS ---------------------------------
      SET THIS. Until it is set the form validates, shows the thank-you state
      and logs the payload so the page can be demoed, but sends nothing.       */
-  /* Make.com catch hook "AZ Signature Homes - Website Lead Form" (team My Team,
-     us2). The scenario behind it posts to Michael's Follow Up Boss as a
-     Registration event. No API key ever touches this file. */
-  var FUB_ENDPOINT = "https://hook.us2.make.com/od6wkwbbl75fnn65x17ugrxlh69zngpe";
+  /* GHL inbound webhook, Michael's sub-account: workflow "22 - Website Lead
+     Intake (inbound webhook)" creates/updates the contact, notes the message,
+     tags website-lead + website-form (which starts 01 - Speed to Lead).
+     Replaced the Make.com -> Follow Up Boss hook at the FUB cutover.
+     No API key ever touches this file. */
+  var FUB_ENDPOINT = "https://services.leadconnectorhq.com/hooks/gyKckbQyAdAfdxqNFLg3/webhook-trigger/2c2e1e8a-2d70-421d-8c9a-8a9359758eea";
 
   var form = document.getElementById("leadform");
   var pageField = document.getElementById("f-page");
