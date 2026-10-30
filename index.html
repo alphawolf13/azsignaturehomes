@@ -673,6 +673,8 @@ p:last-child{margin-bottom:0;}
 .guide h3{ font-family:var(--ff-display); font-weight:400; font-size:clamp(1.34rem,1.95vw,1.68rem); margin:0 0 10px; color:var(--bone); }
 .guide > p{ color:var(--bone-2); font-size:.95rem; max-width:44ch; margin:0 0 22px; }
 .guideform{ display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); gap:12px; }
+.cf-turnstile{ grid-column:1/-1; }
+#leadform .cf-turnstile{ margin-bottom:1rem; }
 /* minmax(0,1fr) rather than 1fr: Inter sets wider than DM Sans, and a plain 1fr track
    refuses to shrink below its content, which pushed this grid past the viewport at 1024. */
 .guideform input[type=text],.guideform input[type=email]{ min-width:0; background:transparent; border:0; border-bottom:1px solid var(--line-2);
@@ -946,6 +948,7 @@ fbq('track','PageView');
 </script>
 <noscript><img height="1" width="1" style="display:none" alt="" src="https://www.facebook.com/tr?id=472373668930641&ev=PageView&noscript=1"></noscript>
 <!-- End Meta Pixel -->
+<script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -1415,6 +1418,7 @@ fbq('track','PageView');
                  style="position:absolute;left:-9999px;opacity:0;height:0;width:0">
           <label class="consent consent--sm"><input type="checkbox" name="consent" required>
             <span>Send me the guide, and I agree to follow-up emails from Michael Karabatsos PLLC about real estate services. Unsubscribe anytime. <a href="/privacy" target="_blank" rel="noopener">Privacy Policy</a> &middot; <a href="/terms" target="_blank" rel="noopener">Terms</a></span></label>
+          <div class="cf-turnstile" data-sitekey="__TURNSTILE_SITEKEY__" data-appearance="interaction-only" data-theme="dark" data-size="flexible"></div>
           <button class="btn" type="submit">Send me the guide</button>
           <p class="guide__done" hidden></p>
         </form>
@@ -1431,6 +1435,7 @@ fbq('track','PageView');
                  style="position:absolute;left:-9999px;opacity:0;height:0;width:0">
           <label class="consent consent--sm"><input type="checkbox" name="consent" required>
             <span>Send me the guide, and I agree to follow-up emails from Michael Karabatsos PLLC about real estate services. Unsubscribe anytime. <a href="/privacy" target="_blank" rel="noopener">Privacy Policy</a> &middot; <a href="/terms" target="_blank" rel="noopener">Terms</a></span></label>
+          <div class="cf-turnstile" data-sitekey="__TURNSTILE_SITEKEY__" data-appearance="interaction-only" data-theme="dark" data-size="flexible"></div>
           <button class="btn" type="submit">Send me the guide</button>
           <p class="guide__done" hidden></p>
         </form>
@@ -1600,10 +1605,11 @@ fbq('track','PageView');
           </span>
         </label>
 
+        <div class="cf-turnstile" data-sitekey="__TURNSTILE_SITEKEY__" data-appearance="interaction-only" data-theme="dark" data-size="flexible"></div>
         <button class="btn btn--solid" type="submit" id="f-submit">Request the consultation</button>
         <p class="form__note form__note--warn" id="formfallback" hidden>
-        Your email app should open with this filled in. If it did not, send the same
-        details to <a href="mailto:michael@azsignaturehomes.com">michael@azsignaturehomes.com</a>
+        That did not go through. Please try once more, or send the same details to
+        <a href="mailto:michael@azsignaturehomes.com">michael@azsignaturehomes.com</a>
         or call <a href="tel:+16028335172">602.833.5172</a>.
       </p>
       <p class="form__note">
@@ -1876,8 +1882,32 @@ fbq('track','PageView');
      Intake (inbound webhook)" creates/updates the contact, notes the message,
      tags website-lead + website-form (which starts 01 - Speed to Lead).
      Replaced the Make.com -> Follow Up Boss hook at the FUB cutover.
-     No API key ever touches this file. */
-  var FUB_ENDPOINT = "https://services.leadconnectorhq.com/hooks/gyKckbQyAdAfdxqNFLg3/webhook-trigger/2c2e1e8a-2d70-421d-8c9a-8a9359758eea";
+     Since 30 Oct 2026 the forms post to /api/lead, which checks Cloudflare
+     Turnstile and only then forwards to that webhook. The webhook URL lives in
+     Vercel's environment, never in this file, because bots were posting to it
+     directly with strangers' email addresses. */
+  var FUB_ENDPOINT = "/api/lead";
+
+  /* Turnstile drops its token into a hidden field inside each form. It is
+     normally ready a second after the page loads; wait briefly if not. */
+  function humanToken(f){
+    var el = f.querySelector('[name="cf-turnstile-response"]');
+    return el ? el.value : "";
+  }
+  function waitToken(f, ms){
+    return new Promise(function(resolve){
+      var t0 = Date.now();
+      (function poll(){
+        var v = humanToken(f);
+        if (v || Date.now() - t0 > ms) return resolve(v);
+        setTimeout(poll, 250);
+      })();
+    });
+  }
+  function resetCheck(f){
+    var w = f.querySelector(".cf-turnstile");
+    if (w && window.turnstile) { try { window.turnstile.reset(w); } catch (e) {} }
+  }
 
   var form = document.getElementById("leadform");
   var pageField = document.getElementById("f-page");
@@ -1925,21 +1955,23 @@ fbq('track','PageView');
       return;
     }
 
-    /* Form-encoded "simple" request: no CORS preflight, so it cannot be
-       blocked cross-origin. no-cors means the reply is opaque; a network
-       failure still rejects and falls back to the email handoff. */
+    /* Same-origin post to the relay. Success only when it confirms the lead
+       reached the CRM; anything else shows the email and phone fallback. */
     data.consent = data.consent ? "yes" : "no";
-    fetch(FUB_ENDPOINT, {
-      method:"POST",
-      mode:"no-cors",
-      body: new URLSearchParams(data)
-    }).then(function(){
-      done();
-    }).catch(function(){
+    var fail = function(){
+      resetCheck(form);
       btn.disabled = false; btn.textContent = "Request the consultation";
       var note = document.getElementById("formfallback");
       if (note) note.hidden = false;
-    });
+    };
+    waitToken(form, 6000).then(function(tok){
+      data["cf-turnstile-response"] = tok;
+      return fetch(FUB_ENDPOINT, { method:"POST", body: new URLSearchParams(data) });
+    }).then(function(r){
+      return r.json().catch(function(){ return {}; });
+    }).then(function(j){
+      if (j && j.ok) done(); else fail();
+    }).catch(fail);
   });
 
 
@@ -1972,7 +2004,10 @@ fbq('track','PageView');
         done.hidden = false; gf.classList.add("is-sent");
         if (file) { var a = document.createElement("a"); a.href = file; a.download = ""; document.body.appendChild(a); a.click(); a.remove(); }
       };
-      fetch(FUB_ENDPOINT, { method:"POST", mode:"no-cors", body: payload }).then(finish, finish);
+      waitToken(gf, 6000).then(function(tok){
+        payload.set("cf-turnstile-response", tok);
+        return fetch(FUB_ENDPOINT, { method:"POST", body: payload });
+      }).then(finish, finish).then(function(){ resetCheck(gf); });
     });
   });
 
