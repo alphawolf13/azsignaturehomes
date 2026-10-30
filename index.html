@@ -1411,6 +1411,8 @@ fbq('track','PageView');
         <form class="guideform" data-guide="buyer" data-file="azsh-buyer-guide.pdf" novalidate>
           <input type="text" name="firstName" placeholder="First name" autocomplete="given-name" required aria-label="First name">
           <input type="email" name="email" placeholder="Email" autocomplete="email" required aria-label="Email">
+          <input type="text" name="company" tabindex="-1" autocomplete="off" aria-hidden="true"
+                 style="position:absolute;left:-9999px;opacity:0;height:0;width:0">
           <label class="consent consent--sm"><input type="checkbox" name="consent" required>
             <span>Send me the guide, and I agree to follow-up emails from Michael Karabatsos PLLC about real estate services. Unsubscribe anytime. <a href="/privacy" target="_blank" rel="noopener">Privacy Policy</a> &middot; <a href="/terms" target="_blank" rel="noopener">Terms</a></span></label>
           <button class="btn" type="submit">Send me the guide</button>
@@ -1425,6 +1427,8 @@ fbq('track','PageView');
         <form class="guideform" data-guide="seller" data-file="azsh-seller-guide.pdf" novalidate>
           <input type="text" name="firstName" placeholder="First name" autocomplete="given-name" required aria-label="First name">
           <input type="email" name="email" placeholder="Email" autocomplete="email" required aria-label="Email">
+          <input type="text" name="company" tabindex="-1" autocomplete="off" aria-hidden="true"
+                 style="position:absolute;left:-9999px;opacity:0;height:0;width:0">
           <label class="consent consent--sm"><input type="checkbox" name="consent" required>
             <span>Send me the guide, and I agree to follow-up emails from Michael Karabatsos PLLC about real estate services. Unsubscribe anytime. <a href="/privacy" target="_blank" rel="noopener">Privacy Policy</a> &middot; <a href="/terms" target="_blank" rel="noopener">Terms</a></span></label>
           <button class="btn" type="submit">Send me the guide</button>
@@ -1940,9 +1944,16 @@ fbq('track','PageView');
 
 
   /* ---- 8c. GUIDE DOWNLOADS: capture to FUB, then hand over the file ------- */
+  /* Bots signed up here three times (Oct 2026). Same hidden trap as the
+     consultation form, plus a speed check: nobody types a name and email and
+     ticks the box within 3 seconds of the page opening. Both drop silently;
+     a real person who somehow trips the timer just clicks again. */
+  var guideT0 = Date.now();
   document.querySelectorAll(".guideform").forEach(function(gf){
     gf.addEventListener("submit", function(e){
       e.preventDefault();
+      if (gf.company.value) return;                 /* honeypot tripped, silent drop */
+      if (Date.now() - guideT0 < 3000) return;      /* too fast for a person, silent drop */
       if (!gf.checkValidity()) { gf.reportValidity(); return; }
       var kind = gf.dataset.guide, file = gf.dataset.file;
       var name = kind === "seller" ? "Seller's Guide" : "Buyer's Guide";
